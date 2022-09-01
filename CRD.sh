@@ -29,7 +29,7 @@ clear
 echo "============================="
 echo "         adding user"
 echo "============================="
-sudo adduser desktop --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
+sudo adduser ubuntu --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 echo "ubuntu:ubuntu" | sudo chpasswd
 sudo usermod -aG sudo,adm ubuntu
 clear
