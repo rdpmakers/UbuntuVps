@@ -23,3 +23,16 @@ echo "============================="
 sudo apt install tightvncserver
 clear
 clear
+echo "============================="
+echo "         configuring"
+echo "============================="
+echo "note: after configure password, type n"
+vncserver
+sleep 5
+vncserver -kill :1
+mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+echo -e "#!/bin/bash\nxrdb $HOME/.Xresources\nstartxfce4 &" >> ~/.vnc/xstartup
+sudo chmod +x ~/.vnc/xstartup
+vncserver
+
+
