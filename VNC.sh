@@ -31,7 +31,9 @@ vncserver
 sleep 5
 vncserver -kill :1
 mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
-echo -e "#!/bin/bash\nxrdb $HOME/.Xresources\nstartxfce4 &" >> ~/.vnc/xstartup
+echo "#!/bin/bash" >> ~/.vnc/xstartup
+echo "xrdb $HOME/.Xresources" >> ~/.vnc/xstartup
+echo "startxfce4 &" >> ~/.vnc/xstartup
 sudo chmod +x ~/.vnc/xstartup
 vncserver
 echo "Start XFCE"
