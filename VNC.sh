@@ -20,7 +20,7 @@ clear
 echo "============================="
 echo "     installing tightvnc"
 echo "============================="
-sudo apt install tightvncserver
+sudo apt install tightvncserver -y
 clear
 clear
 echo "============================="
@@ -34,5 +34,14 @@ mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
 echo -e "#!/bin/bash\nxrdb $HOME/.Xresources\nstartxfce4 &" >> ~/.vnc/xstartup
 sudo chmod +x ~/.vnc/xstartup
 vncserver
-
+echo "Start XFCE"
+echo "===================================="
+echo "===================================="
+echo "VNC Password: your password"
+echo "Terminal Password : ubuntu"
+echo "VNC Address:"
+curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+echo "IP:" && curl --silent --show-error ipconfig.io
+echo "===================================="
+echo "===================================="
 
